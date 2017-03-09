@@ -17,10 +17,10 @@ RUN pip --no-cache-dir install \
         requests \
         matplotlib \
         numpy \
+        flask \
         scipy \
         pandas \
         Pillow \
-        request \
         beautifulsoup4
 
 USER $MDP_USER
