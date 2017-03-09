@@ -1,4 +1,4 @@
-FROM mdp/debian:latest
+FROM mediadesignpractices/debian:latest
 LABEL organization "Media Design Practices"
 LABEL maintainer "mediadesignpractices"
 LABEL contributor "unsalted"
