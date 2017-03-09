@@ -1,4 +1,5 @@
 FROM mdp:tensorflow-gpu
+LABEL organization "MDP"
 LABEL maintainer "unsalted"
 
 USER root

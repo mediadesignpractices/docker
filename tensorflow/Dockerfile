@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:latest-gpu
 LABEL maintainer "unsalted"
 
 ENV DEBIAN_FRONTEND noninteractive
