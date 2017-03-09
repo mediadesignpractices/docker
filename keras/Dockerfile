@@ -1,4 +1,4 @@
-FROM mdp/tensorflow:latest
+FROM mediadesignpractices/tensorflow:latest
 LABEL organization "Media Design Practices"
 LABEL maintainer "mediadesignpractices"
 LABEL contributor "unsalted"

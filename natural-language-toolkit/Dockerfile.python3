@@ -1,4 +1,4 @@
-FROM mdp/jupyter:python3-latest
+FROM mediadesignpractices/jupyter:python3-latest
 LABEL organization "MDP"
 LABEL maintainer "mdp"
 LABEL contributor "unsalted"

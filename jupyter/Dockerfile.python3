@@ -1,4 +1,4 @@
-FROM mdp/python:python3-latest
+FROM mediadesignpractices/python:python3-latest
 LABEL organization "Media Design Practices"
 LABEL maintainer "mediadesignpractices"
 LABEL contributor "unsalted"
