@@ -1,0 +1,29 @@
+FROM mdp:latest
+
+USER root
+RUN groupadd --gid 8000 python \
+    && usermod -a -G python mdp
+
+# change python version in mdp:latest
+ENV PYTHON_PIP_VERSION 9.0.1
+ENV PYTHON_VERSION $PYTHON2_VERSION
+
+RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
+    python get-pip.py && \
+    rm get-pip.py
+
+RUN pip --no-cache-dir install \
+        virtualenv \
+        requests \
+        matplotlib \
+        numpy \
+        scipy \
+        pandas \
+        Pillow \
+        request \
+        beautifulsoup4
+
+USER $MDP_USER
+WORKDIR $WORK_DIR
+
+CMD ["python2"]
