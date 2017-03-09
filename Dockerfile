@@ -1,4 +1,7 @@
 FROM buildpack-deps:jessie
+LABEL organization "Media Design Practices"
+LABEL maintainer "mediadesignpractices"
+LABEL contributor "unsalted"
 
 # Configure environment
 ENV DEBIAN_FRONTEND noninteractive

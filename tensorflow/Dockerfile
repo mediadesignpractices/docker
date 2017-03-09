@@ -1,5 +1,7 @@
 FROM tensorflow/tensorflow:latest-gpu
-LABEL maintainer "unsalted"
+LABEL organization "Media Design Practices"
+LABEL maintainer "mediadesignpractices"
+LABEL contributor "unsalted"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV MDP_USER mdp

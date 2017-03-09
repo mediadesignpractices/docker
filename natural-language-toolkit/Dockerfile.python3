@@ -1,4 +1,8 @@
-FROM mdp:jupyter-python3
+FROM mdp/jupyter:python3-latest
+LABEL organization "MDP"
+LABEL maintainer "mdp"
+LABEL contributor "unsalted"
+
 USER root
 ENV WORK_DIR /home/$MDP_USER/notebooks
 

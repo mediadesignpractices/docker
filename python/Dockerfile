@@ -1,4 +1,7 @@
-FROM mdp:latest
+FROM mdp/debian:latest
+LABEL organization "Media Design Practices"
+LABEL maintainer "mediadesignpractices"
+LABEL contributor "unsalted"
 
 USER root
 RUN groupadd --gid 8000 python \

@@ -1,4 +1,8 @@
-FROM mdp:python
+FROM mdp/python:latest
+LABEL organization "Media Design Practices"
+LABEL maintainer "mediadesignpractices"
+LABEL contributor "unsalted"
+
 USER root
 ENV WORK_DIR /home/$MDP_USER/notebooks
 

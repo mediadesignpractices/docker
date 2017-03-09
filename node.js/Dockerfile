@@ -1,4 +1,7 @@
-FROM mdp:latest
+FROM mdp/debian:latest
+LABEL organization "Media Design Practices"
+LABEL maintainer "mediadesignpractices"
+LABEL contributor "unsalted"
 
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 6.10.0

@@ -1,6 +1,7 @@
-FROM mdp:tensorflow-gpu
-LABEL organization "MDP"
-LABEL maintainer "unsalted"
+FROM mdp/tensorflow:latest
+LABEL organization "Media Design Practices"
+LABEL maintainer "mediadesignpractices"
+LABEL contributor "unsalted"
 
 USER root
 
