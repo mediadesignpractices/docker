@@ -4,7 +4,7 @@ LABEL maintainer "mediadesignpractices"
 LABEL contributor "unsalted"
 
 USER root
-ENV WORK_DIR /home/$MDP_USER/notebooks
+ENV NOTEBOOK_DIR $HOME/notebooks
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
         libsm6 \
@@ -35,10 +35,13 @@ COPY run_jupyter.sh /
 # IPython
 EXPOSE 8888
 
-RUN mkdir -p $WORK_DIR && \
-    chown $MDP_USER $WORK_DIR
+RUN mkdir -p $NOTEBOOK_DIR \
+    && chown $NB_USER $NOTEBOOK_DIR \
+    && ln -s $NOTEBOOK_DIR $DATA_DIR/notebooks
 
-USER $MDP_USER
-WORKDIR $WORK_DIR
+COPY example.ipynb $HOME/test/example.ipynb
+
+USER $NB_USER
+WORKDIR $NOTEBOOK_DIR
 
 CMD ["/run_jupyter.sh"]
