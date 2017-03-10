@@ -54,7 +54,12 @@ Because the majority of MDP students and faculty are prototyping rather than dev
 
 
 ## Getting started
-** Coming soon **
+
+We are using `Makefile` to simplify docker commands within make commands.
+
+Run the container and start a bash
+
+    $ make bash
 
 ## Tagging system
 
@@ -83,7 +88,6 @@ This is the regualar expression used to validate a release tag:
 `^[v]((\d?\d\.)(0\.|[1-9]?[0-9]\.)([1-9]?[0-9]|))$`
 
 You can try it on [regex101](https://regex101.com/r/iR8fS9/5)
-
 
 
 **To tag a change:**

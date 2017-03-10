@@ -2,7 +2,8 @@ help:
 	@cat Makefile
 
 DATA?="${HOME}/Data"
-TAG?="tensorflow"
+GPU?=0
+TAG="tensorflow"
 DOCKER_FILE=Dockerfile
 SRC=$(shell dirname `pwd`)
 
