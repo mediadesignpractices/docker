@@ -37,19 +37,19 @@ have them as a dependency or starting point.
 
 buildpack-deps:jessie
 |
-|---mdp:latest
+|---mediadesignpractices:latest
     |
-    |--- mdp:python(or python3)
-    |   |--- mdp:jupyter(or jupyter-python3)
-    |       |--- nltk (Natural Language Toolkit)
+    |--- mediadesignpractices:python(or python3)
+    |   |--- mediadesignpractices:jupyter(or jupyter-python3)
+    |       |--- mediadesignpractices (Natural Language Toolkit)
     |
-    |--- node.js
+    |--- mediadesignpractices:node
 
 
 tensorflow/tensorflow:latest-gpu
 |
-|--- mdp:tensorflow
-    |___ mdp:keras
+|--- mediadesignpractices:tensorflow
+    |___ mediadesignpractices:keras
 
 ``` 
 
