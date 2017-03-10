@@ -67,7 +67,7 @@ The repository follows [semver](http://semver.org/) format.
 > 3. PATCH version when you make backwards-compatible bug fixes.
 > Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
-Because many of the images are related, all images (python, node, jupyter) share the same version numbers. They are not related to the application version `python:2.7.1` would not be `python-2.0.1`.
+Because many of the images are related, all images (python, node, jupyter) share the same version numbers. They are not related to the application version `python:2.7.1` would not be python version `python-2.7.1`.
 
 If you are building something that requires stability make sure to use a versioned image e.g. `mediadesignpractices/python:1.0.1` rather than `mediadesignpractices/python` or `mediadesignpractices/python:latest`.
 The same goes for anything that is "archival".
