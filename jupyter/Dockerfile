@@ -39,6 +39,7 @@ RUN mkdir -p $NOTEBOOK_DIR \
     && chown $NB_USER $NOTEBOOK_DIR \
     && ln -s $NOTEBOOK_DIR $DATA_DIR/notebooks
 
+COPY example.ipynb $HOME/test/example.ipynb
 
 USER $NB_USER
 WORKDIR $NOTEBOOK_DIR
