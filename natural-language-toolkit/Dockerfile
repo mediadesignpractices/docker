@@ -8,9 +8,7 @@ ENV WORK_DIR /home/$MDP_USER/notebooks
 
 # useful basics
 RUN pip --no-cache-dir install \
-        nltk \
-        && \
-    python -m ipykernel.kernelspec
+        nltk
 
 USER $MDP_USER
 WORKDIR $WORK_DIR
