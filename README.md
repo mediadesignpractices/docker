@@ -74,9 +74,9 @@ The same goes for anything that is "archival".
 
 ## Contributing
 
-Tag changes following semver format, adding a package to mediadesignpractices:latest would constitute a minor version change e.g. `0.1.1` becomes `0.1.0`.
+Tag changes following semver format, adding a package to mediadesignpractices:latest would constitute a minor version change e.g. `1.0.1` becomes `1.0.2`.
 
-Changing node from `6.10.0` to `7.0.1` would probably constitute a major version change, e.g. `1.0.1` becomes `2.0.0`.
+Changing node from `6.10.0` to `7.0.1` would probably constitute a major **breaking** version change, e.g. `1.0.1` becomes `2.0.0`.
 
 To tag a change:
 
