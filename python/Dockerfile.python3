@@ -59,7 +59,7 @@ RUN pip3 --no-cache-dir install \
         beautifulsoup4
 
 
-USER $MDP_USER
+USER $NB_USER
 WORKDIR $WORK_DIR
 
 CMD ["python3"]

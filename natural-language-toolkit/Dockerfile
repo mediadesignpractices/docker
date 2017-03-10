@@ -1,17 +1,16 @@
 FROM mediadesignpractices/jupyter:latest
-LABEL organization "MDP"
+LABEL organization "NB"
 LABEL maintainer "mdp"
 LABEL contributor "unsalted"
 
 USER root
-ENV WORK_DIR /home/$MDP_USER/notebooks
 
 # useful basics
 RUN pip --no-cache-dir install \
         nltk
 
-USER $MDP_USER
-WORKDIR $WORK_DIR
+USER $NB_USER
+WORKDIR $NOTEBOOK_DIR
 
 # IPython
 EXPOSE 8888

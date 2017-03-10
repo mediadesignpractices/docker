@@ -26,7 +26,7 @@ RUN pip --no-cache-dir install \
         Pillow \
         beautifulsoup4
 
-USER $MDP_USER
+USER $NB_USER
 WORKDIR $WORK_DIR
 
 CMD ["python2"]

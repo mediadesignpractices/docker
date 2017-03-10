@@ -60,7 +60,7 @@ RUN pip3 --no-cache-dir install \
 
 ADD theanorc /home/keras/.theanorc
 
-USER $MDP_USER
-WORKDIR $WORK_DIR
+USER $NB_USER
+WORKDIR $NOTEBOOK_DIR
 
 CMD ["/run_jupyter.sh"]

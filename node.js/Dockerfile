@@ -52,7 +52,7 @@ RUN set -ex \
   && chmod +x /usr/local/bin/yarn
 
 
-USER $MDP_USER
+USER $NB_USER
 WORKDIR $WORK_DIR
 
 CMD [ "node" ]
