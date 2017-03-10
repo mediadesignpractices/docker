@@ -25,11 +25,7 @@ quick links:
 
 ## Repositiory Structure
 
-The dockerfiles in this repository are structured so that they stack,
-starting at a base image, then core dependencies, up to higher level
-applications or libraries. Because of Docker's "Automated Builds" 
-changes to base images automativaly work their way in to images that 
-have them as a dependency or starting point.
+The dockerfiles in this repository are structured so that they stack, starting at a base image, then core dependencies, up to higher level applications or libraries. Because of Docker's "Automated Builds"  changes to base images automativaly work their way in to images that  have them as a dependency or starting point.
 
 **The structure:**
 
@@ -51,17 +47,48 @@ tensorflow/tensorflow:latest-gpu
 |--- mediadesignpractices:tensorflow
     |___ mediadesignpractices:keras
 
+
 ``` 
 
-Because the majority of MDP students and faculty are prototyping rather
-than developing applications the images are MDP specific builds that are
-closer to working in a linux development environment with base tools like
-nano, vim, git, unzip, wget etc. which help with command line interaction,
-there are "official" images (which these are based on) that are bare bones
-and therefore less relevant for prototyping.
+Because the majority of MDP students and faculty are prototyping rather than developing applications the images are MDP specific builds that are closer to working in a linux development environment with base tools like nano, vim, git, unzip, wget etc. which help with command line interaction, there are "official" images (which these are based on) that are bare bones and therefore less relevant for prototyping.
+
 
 ## Getting started
 ** Coming soon **
 
+## Tagging system
+
+The repository follows [semver](http://semver.org/) format.
+
+> Given a version number {MAJOR}.{MINOR}.{PATCH}, increment the:
+> 
+> MAJOR version when you make incompatible API changes,
+> MINOR version when you add functionality in a backwards-compatible manner, and
+> PATCH version when you make backwards-compatible bug fixes.
+> Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+Because many of the images are related, all images (python, node, jupyter) share the same version numbers. They are not related to the application version `python:2.7.1` would not be `python-2.0.1`.
+
+If you are building something that requires stability make sure to use a versioned image e.g. `mediadesignpractices/python:1.0.1` rather than `mediadesignpractices/python` or `mediadesignpractices/python:latest`.
+The same goes for anything that is "archival".
+
 ## Contributing
-** Coming soon **
+
+Tag changes following semver format, adding a package to mediadesignpractices:latest would constitute a minor version change e.g. `0.1.1` becomes `0.1.0`.
+
+Changing node from `6.10.0` to `7.0.1` would probably constitute a major version change, e.g. `1.0.1` becomes `2.0.0`.
+
+To tag a change:
+
+```
+
+# add a tag
+git tag {tag}
+
+# Move a tag to current commit (for example you just changed the readme), use force.
+git tag {tag} -f
+
+# push the tags to github
+git push origin {branch} --tags (-f to force)
+
+```
