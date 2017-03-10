@@ -11,16 +11,16 @@ TEST=tests/
 SRC=$(shell dirname `pwd`)
 
 build:
-	docker build -t mdp:keras --build-arg python_version=3.5 -f $(DOCKER_FILE) .
+	docker build -d -t mediadesignpractices:keras -f $(DOCKER_FILE) .
 
-bash: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) mdp:keras bash
+bash:
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) mediadesignpractices:keras bash
 
-ipython: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) mdp:keras ipython
+ipython:
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) mediadesignpractices:keras ipython
 
-notebook: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data --net=host --env KERAS_BACKEND=$(BACKEND) mdp:keras
+notebook:
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data --net=host --env KERAS_BACKEND=$(BACKEND) mediadesignpractices:keras
 
-test: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) mdp:keras py.test $(TEST)
+test:
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) mediadesignpractices:keras py.test $(TEST)
