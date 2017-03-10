@@ -67,18 +67,26 @@ The repository follows [semver](http://semver.org/) format.
 > 3. PATCH version when you make backwards-compatible bug fixes.
 > Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
-Because many of the images are related, all images (python, node, jupyter) share the same version numbers. They are not related to the application version `python:2.7.1` would not be python version `python-2.7.1`.
+Because many of the images are related, all images (python, node, jupyter) share the same version numbers. They are not related to the application version `python:v2.7.1` would not be python version `python-v2.7.1`.
 
-If you are building something that requires stability make sure to use a versioned image e.g. `mediadesignpractices/python:1.0.1` rather than `mediadesignpractices/python` or `mediadesignpractices/python:latest`.
+If you are building something that requires stability make sure to use a versioned image e.g. `mediadesignpractices/python:v1.0.1` rather than `mediadesignpractices/python` or `mediadesignpractices/python:latest`.
 The same goes for anything that is "archival".
 
 ## Contributing
 
-Tag changes following semver format, adding a package to mediadesignpractices:latest would constitute a minor version change e.g. `1.0.1` becomes `1.0.2`.
+Tag changes following semver format, adding a package to mediadesignpractices:latest would constitute a minor version change e.g. `v1.0.1` becomes `v1.0.2`.
 
-Changing node from `6.10.0` to `7.0.1` would probably constitute a major **breaking** version change, e.g. `1.0.1` becomes `2.0.0`.
+Changing node.js from `v6.10.0` to `v7.0.1` would probably constitute a major **breaking** version change, e.g. `v1.0.1` becomes `v2.0.0`.
 
-To tag a change:
+This is the regualar expression used to validate a release tag:
+
+`^[v]((\d?\d\.)(0\.|[1-9]?[0-9]\.)([1-9]?[0-9]|))$`
+
+You can try it on [regex101](https://regex101.com/r/iR8fS9/5)
+
+
+
+**To tag a change:**
 
 ```
 
