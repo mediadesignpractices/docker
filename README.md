@@ -62,9 +62,9 @@ The repository follows [semver](http://semver.org/) format.
 
 > Given a version number {MAJOR}.{MINOR}.{PATCH}, increment the:
 > 
-> MAJOR version when you make incompatible API changes,
-> MINOR version when you add functionality in a backwards-compatible manner, and
-> PATCH version when you make backwards-compatible bug fixes.
+> 1. MAJOR version when you make incompatible API changes,
+> 2. MINOR version when you add functionality in a backwards-compatible manner, and
+> 3. PATCH version when you make backwards-compatible bug fixes.
 > Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 Because many of the images are related, all images (python, node, jupyter) share the same version numbers. They are not related to the application version `python:2.7.1` would not be `python-2.0.1`.
