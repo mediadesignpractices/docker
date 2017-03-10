@@ -25,7 +25,7 @@ quick links:
 
 ## Repositiory Structure
 
-The dockerfiles in this repository are structured so that they stack, starting at a base image, then core dependencies, up to higher level applications or libraries. Because of Docker's "Automated Builds"  changes to base images automativaly work their way in to images that  have them as a dependency or starting point.
+The dockerfiles in this repository are structured so that they stack, starting at a base image, then core dependencies, up to higher level applications or libraries. Because of Docker's "Automated Builds"  changes to base images automatically work their way in to images that  have them as a dependency or starting point.
 
 **The structure:**
 
