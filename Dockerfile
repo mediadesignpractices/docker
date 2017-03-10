@@ -45,11 +45,11 @@ ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # Create NB_UID user with UID=1000 and in the 'users' group
-RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
+RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
     && mkdir -p $WORK_DIR $DATA_DIR \
     && chown $NB_USER $WORK_DIR $DATA_DIR \
     && ln -s $WORK_DIR $HOME$WORK_DIR \
-    && ln -s $DATA_DIR $HOME$DATA_DIR \
+    && ln -s $DATA_DIR $HOME$DATA_DIR
 
 USER $NB_USER
 WORKDIR $WORK_DIR
