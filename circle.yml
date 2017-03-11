@@ -1,0 +1,55 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+  override:
+    - docker info
+    - if [[ -e ~/docker/debian.tar ]]; then docker load --input ~/docker/debian.tar; fi
+    - docker build -t mediadesignpractices/debian .
+    - mkdir -p ~/docker; docker save mediadesignpractices/debian > ~/docker/debian.tar
+    # python
+    - if [[ -e ~/docker/python.tar ]]; then docker load --input ~/docker/python.tar; fi
+    - docker build -t mediadesignpractices/python python/
+    - mkdir -p ~/docker; docker save mediadesignpractices/python > ~/docker/python.tar
+    # python
+    - if [[ -e ~/docker/python3.tar ]]; then docker load --input ~/docker/python3.tar; fi
+    - docker build -t mediadesignpractices/python:python3 -t mediadesignpractices/python:python3-latest python/Dockerfile.python3.
+    - mkdir -p ~/docker; docker save mediadesignpractices/python3 > ~/docker/python3.tar
+    # notebook
+    - if [[ -e ~/docker/jupyter.tar ]]; then docker load --input ~/docker/jupyter.tar; fi
+    - docker build -t mediadesignpractices/jupyter jupyter/
+    - mkdir -p ~/docker; docker save mediadesignpractices/jupyter > ~/docker/jupyter.tar
+    # jupyter python3
+    - if [[ -e ~/docker/jupyter-python3.tar ]]; then docker load --input ~/docker/jupyter-python3.tar; fi
+    - docker build -t mediadesignpractices/jupyter:python3-latest -t mediadesignpractices/jupyter:python3 jupyter/Dockerfile.python3.
+    - mkdir -p ~/docker; docker save mediadesignpractices/jupyter-python3 > ~/docker/jupyter-python3.tar
+    # node
+    - if [[ -e ~/docker/node.tar ]]; then docker load --input ~/docker/node.tar; fi
+    - docker build -t mediadesignpractices/node node/
+    - mkdir -p ~/docker; docker save mediadesignpractices/node > ~/docker/node.tar
+    # tensorflow
+    - if [[ -e ~/docker/tensorflow.tar ]]; then docker load --input ~/docker/tensorflow.tar; fi
+    - docker build -t mediadesignpractices/tensorflow tensorflow/
+    - mkdir -p ~/docker; docker save mediadesignpractices/tensorflow > ~/docker/tensorflow.tar
+    # keras
+    - if [[ -e ~/docker/keras.tar ]]; then docker load --input ~/docker/keras.tar; fi
+    - docker build -t mediadesignpractices/keras keras/
+    - mkdir -p ~/docker; docker save mediadesignpractices/keras > ~/docker/keras.tar
+    # nltk
+    - if [[ -e ~/docker/nltk.tar ]]; then docker load --input ~/docker/nltk.tar; fi
+    - docker build -t mediadesignpractices/nltk nltk/
+    - mkdir -p ~/docker; docker save mediadesignpractices/nltk > ~/docker/nltk.tar
+
+# test:
+#  override:
+#    - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
+#    - curl --retry 10 --retry-delay 5 -v http://localhost:9200
+
+# deployment:
+#  hub: 
+#    branch: master
+#    commands:
+#      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
