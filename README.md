@@ -2,6 +2,9 @@
 
 A few mdp oriented Dockerfiles for getting students up and running quickly.
 
+| **`Linux CPU`** |
+|-----------------|
+|![ubuntu ci status badge](https://circleci.com/gh/mediadesignpractices/docker/tree/master.svg?style=shield&circle-token=2e285795f3c2b2dc1a397a021055352475774758)|
 
 ## What is Docker
 
