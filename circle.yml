@@ -16,16 +16,16 @@ dependencies:
     - mkdir -p ~/docker; docker save mediadesignpractices/python > ~/docker/python.tar
     # python
     - if [[ -e ~/docker/python3.tar ]]; then docker load --input ~/docker/python3.tar; fi
-    - docker build -t mediadesignpractices/python:python3 -t mediadesignpractices/python:python3-latest python/Dockerfile.python3.
-    - mkdir -p ~/docker; docker save mediadesignpractices/python3 > ~/docker/python3.tar
-    # notebook
+    - docker build -f python/Dockerfile.python3 -t mediadesignpractices/python:python3-latest -t mediadesignpractices/python:python3 python
+    - mkdir -p ~/docker; docker save mediadesignpractices/python:python3 > ~/docker/python3.tar
+    # jupyter
     - if [[ -e ~/docker/jupyter.tar ]]; then docker load --input ~/docker/jupyter.tar; fi
     - docker build -t mediadesignpractices/jupyter jupyter/
     - mkdir -p ~/docker; docker save mediadesignpractices/jupyter > ~/docker/jupyter.tar
     # jupyter python3
     - if [[ -e ~/docker/jupyter-python3.tar ]]; then docker load --input ~/docker/jupyter-python3.tar; fi
-    - docker build -t mediadesignpractices/jupyter:python3-latest -t mediadesignpractices/jupyter:python3 jupyter/Dockerfile.python3.
-    - mkdir -p ~/docker; docker save mediadesignpractices/jupyter-python3 > ~/docker/jupyter-python3.tar
+    - docker build -f jupyter/Dockerfile.python3 -t mediadesignpractices/jupyter:python3-latest -t mediadesignpractices/jupyter:python3 jupyter
+    - mkdir -p ~/docker; docker save mediadesignpractices/jupyter:python3 > ~/docker/jupyter-python3.tar
     # node
     - if [[ -e ~/docker/node.tar ]]; then docker load --input ~/docker/node.tar; fi
     - docker build -t mediadesignpractices/node node/
