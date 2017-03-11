@@ -7,9 +7,10 @@ LABEL contributor "unsalted"
 ENV DEBIAN_FRONTEND noninteractive
 ENV NB_USER mdp
 ENV NB_UID 1000
-ENV WORK_DIR /home/$NB_USER/data
 ENV SHELL /bin/bash
 ENV HOME /home/$NB_USER
+ENV DATA_DIR /data
+ENV WORK_DIR /src
 ENV LANG C.UTF-8
 ENV PYTHON3_VERSION python3.4
 ENV PYTHON2_VERSION python2.7
