@@ -16,7 +16,7 @@ dependencies:
     - mkdir -p ~/docker; docker save mediadesignpractices/python > ~/docker/python.tar
     # python
     - if [[ -e ~/docker/python3.tar ]]; then docker load --input ~/docker/python3.tar; fi
-    - docker build -t mediadesignpractices/python:python3 mediadesignpractices/python:python3-latest python/Dockerfile.python3.
+    - docker build -t mediadesignpractices/python:python3 -t mediadesignpractices/python:python3-latest python/Dockerfile.python3.
     - mkdir -p ~/docker; docker save mediadesignpractices/python3 > ~/docker/python3.tar
     # notebook
     - if [[ -e ~/docker/jupyter.tar ]]; then docker load --input ~/docker/jupyter.tar; fi
