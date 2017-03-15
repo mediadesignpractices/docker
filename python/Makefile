@@ -17,4 +17,4 @@ python:
 	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) $(VERSION)
 
 test:
-	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) $(VERSION) --version; $(VERSION) -c "x=5+6; print(x)"; $(VERSION) -c "import string" 
+	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) bash -c "$(VERSION) --version; $(VERSION) -c \"x=5+6; print(x)\"; $(VERSION) -c \"import string\""

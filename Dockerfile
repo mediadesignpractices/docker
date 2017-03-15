@@ -36,14 +36,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         $PYTHON3_VERSION \
         $PYTHON2_VERSION \
         python-dev \
-        && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# generate language files
-RUN locale-gen "en_US.UTF-8"
-ENV LC_ALL en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create NB_UID user with UID=1000 and in the 'users' group
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
