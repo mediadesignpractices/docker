@@ -32,26 +32,26 @@ The dockerfiles in this repository are structured so that they stack, starting a
 
 **The structure:**
 
-```
+```text
 
 buildpack-deps:jessie
 |
-|---mediadesignpractices:latest
+|... mediadesignpractices/debian
     |
-    |--- mediadesignpractices:python(or python3)
-    |   |--- mediadesignpractices:jupyter(or jupyter-python3)
-    |       |--- mediadesignpractices (Natural Language Toolkit)
+    |... mediadesignpractices/python(or python3)
+    |   |... mediadesignpractices/jupyter(or jupyter-python3)
+    |       |...mediadesignpractices (Natural Language Toolkit)
     |
-    |--- mediadesignpractices:node
+    |...mediadesignpractices/node
 
 
 tensorflow/tensorflow:latest-gpu
 |
-|--- mediadesignpractices:tensorflow
-    |___ mediadesignpractices:keras
+|... mediadesignpractices/tensorflow
+    |... mediadesignpractices/keras
 
 
-``` 
+```
 
 Because the majority of MDP students and faculty are prototyping rather than developing applications the images are MDP specific builds that are closer to working in a linux development environment with base tools like nano, vim, git, unzip, wget etc. which help with command line interaction, there are "official" images (which these are based on) that are bare bones and therefore less relevant for prototyping.
 
@@ -69,7 +69,7 @@ Run the container and start a bash
 The repository follows [semver](http://semver.org/) format.
 
 > Given a version number {MAJOR}.{MINOR}.{PATCH}, increment the:
-> 
+>
 > 1. MAJOR version when you make incompatible API changes,
 > 2. MINOR version when you add functionality in a backwards-compatible manner, and
 > 3. PATCH version when you make backwards-compatible bug fixes.
@@ -95,8 +95,7 @@ You can try it on [regex101](https://regex101.com/r/iR8fS9/5)
 
 **To tag a change:**
 
-```
-
+```bash
 # add a tag
 git tag {tag}
 
