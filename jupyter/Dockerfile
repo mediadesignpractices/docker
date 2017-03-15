@@ -25,12 +25,7 @@ RUN pip --no-cache-dir install \
     python -m ipykernel.kernelspec
 
 # Set up our notebook config.
-COPY jupyter_notebook_config.py /root/.jupyter/
-
-# Jupyter has issues with being run directly:
-#   https://github.com/ipython/ipython/issues/7062
-# We just add a little wrapper script.
-COPY run_jupyter.sh /
+COPY jupyter_notebook_config.py $HOME/.jupyter/
 
 # IPython
 EXPOSE 8888
@@ -39,9 +34,8 @@ RUN mkdir -p $NOTEBOOK_DIR \
     && chown $NB_USER $NOTEBOOK_DIR \
     && ln -s $NOTEBOOK_DIR $DATA_DIR/notebooks
 
-COPY example.ipynb $HOME/test/example.ipynb
 
 USER $NB_USER
 WORKDIR $NOTEBOOK_DIR
 
-CMD ["/run_jupyter.sh"]
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]

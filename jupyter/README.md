@@ -22,7 +22,7 @@ Build the container and start a bash
 
 Mount a volume for external data sets
 
-    $ make DATA=~/mydata
+    $ make DATA=~/mydata notebook
 
 Prints all make tasks
 

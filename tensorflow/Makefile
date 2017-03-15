@@ -3,21 +3,28 @@ help:
 
 DATA?="${HOME}/Data"
 GPU?=0
-TAG="tensorflow"
+TAG=tensorflow
+DOCKER=nvidia-docker
+NOTEBOOK_PORT=8888
+TENSORBOARD_PORT=6006
 DOCKER_FILE=Dockerfile
 SRC=$(shell dirname `pwd`)
 
 build:
-	docker build -d -t mediadesignpractices/$(TAG) -f $(DOCKER_FILE) .
+	$(DOCKER) build -t mediadesignpractices/$(TAG) -f $(DOCKER_FILE) .
 
 bash:
-	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) bash
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) bash
 
 ipython:
-	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) ipython
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) ipython
 
 notebook:
-	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data --net=host  mediadesignpractices/$(TAG)
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data -p $(NOTEBOOK_PORT):8888 -p $(TENSORBOARD_PORT):6006  mediadesignpractices/$(TAG)
 
-# test:
-#	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) bash -c "jupyter notebook /home/mdp/test/example.ipynb"
+test:
+	$(DOCKER) run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) python3 -c \
+	"import tensorflow as tf;\
+	hello = tf.constant('Hello, TensorFlow!');\
+	sess = tf.Session();\
+	print(sess.run(hello))"

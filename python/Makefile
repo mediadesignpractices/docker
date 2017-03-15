@@ -3,6 +3,7 @@ help:
 
 DATA?="${HOME}/Data"
 TAG?="python"
+VERSION="python"
 DOCKER_FILE=Dockerfile
 SRC=$(shell dirname `pwd`)
 
@@ -12,11 +13,8 @@ build:
 bash:
 	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) bash
 
-ipython:
-	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) ipython
+python:
+	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) $(VERSION)
 
-notebook:
-	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data --net=host  mediadesignpractices/$(TAG)
-
-# test:
-#	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) bash -c "jupyter notebook /home/mdp/test/example.ipynb"
+test:
+	docker run -it -h mdp -v $(SRC):/src -v $(DATA):/data mediadesignpractices/$(TAG) $(VERSION) --version; $(VERSION) -c "x=5+6; print(x)"; $(VERSION) -c "import string" 

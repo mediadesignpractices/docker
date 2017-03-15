@@ -19,7 +19,12 @@ Build the container and start a python shell
 
 Mount a volume for external data sets
 
-    $ make DATA=~/mydata
+    $ make DATA=~/mydata python
+
+Run Python 3
+
+    make TAG=python:python3 VERSION=python3 test 
+    # (or python/bash)
 
 Prints all make tasks
 

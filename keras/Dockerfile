@@ -56,8 +56,16 @@ RUN pip3 --no-cache-dir install \
         graphviz \
         pydot-ng \
     && pip3 install git+git://github.com/Theano/Theano.git \
-    && pip3 install git+git://github.com/fchollet/keras.git
+	&& pip3 install ipdb pytest pytest-cov python-coveralls coverage==3.7.1 pytest-xdist pep8 pytest-pep8 pydot_ng \
+	&& pip3 install git+git://github.com/fchollet/keras.git
 
+
+WORKDIR /tmp
+
+RUN git clone https://github.com/fchollet/keras.git \
+	&& mv ./keras/tests/ $HOME/ \
+	&& rm -rf ./keras \
+	&& chown $NB_USER $HOME
 ADD theanorc /home/keras/.theanorc
 
 USER $NB_USER

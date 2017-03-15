@@ -45,7 +45,12 @@ dependencies:
 
 test:
   post:
-    - make -C keras/ test
+    - make -C python/ test
+    - make -C python/ VERSION=python3 TAG=python:python3 test
+    - make -C jupyter/ DOCKER=docker test
+    - make -C node/ test
+    - make -C tensorflow/ DOCKER=docker test
+    - make -C keras/ DOCKER=docker test
 
 # deployment:
 #  hub:
