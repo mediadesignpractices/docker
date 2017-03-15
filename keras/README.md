@@ -7,6 +7,10 @@ Keras via [Docker](http://www.docker.com/).
 
 We are using `Makefile` to simplify docker commands within make commands.
 
+You can [download](https://raw.githubusercontent.com/mediadesignpractices/docker/master/keras/Makefile) the makefile from git.
+
+    # curl -O https://raw.githubusercontent.com/mediadesignpractices/docker/master/keras/Makefile
+
 Build the container and start a jupyter notebook
 
     $ make notebook

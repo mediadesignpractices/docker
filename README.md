@@ -59,6 +59,9 @@ Because the majority of MDP students and faculty are prototyping rather than dev
 ## Getting started
 
 We are using `Makefile` to simplify docker commands within make commands.
+You can [download](https://raw.githubusercontent.com/mediadesignpractices/docker/master/jupyter/Makefile) the makefile from git.
+
+    # curl -O https://raw.githubusercontent.com/mediadesignpractices/docker/master/Makefile
 
 Run the container and start a bash
 

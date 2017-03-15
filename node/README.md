@@ -7,6 +7,9 @@ Node via [Docker](http://www.docker.com/).
 ## Running the container
 
 We are using `Makefile` to simplify docker commands within make commands.
+You can [download](https://raw.githubusercontent.com/mediadesignpractices/docker/master/node/Makefile) the makefile from git.
+
+    # curl -O https://raw.githubusercontent.com/mediadesignpractices/docker/master/node/Makefile
 
 Build the container and start a bash
 
