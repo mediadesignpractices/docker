@@ -43,9 +43,9 @@ dependencies:
     - docker build --rm=false -t mediadesignpractices/nltk nltk/
     - mkdir -p ~/docker; docker save mediadesignpractices/nltk > ~/docker/nltk.tar
 
- test:
-  override:
-    - cd keras/; make test; cd ../;
+test:
+  post:
+    - make -C keras/ test
 
 # deployment:
 #  hub:
