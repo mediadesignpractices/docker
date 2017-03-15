@@ -2,6 +2,7 @@ FROM mediadesignpractices/debian:latest
 LABEL organization "Media Design Practices"
 LABEL maintainer "mediadesignpractices"
 LABEL contributor "unsalted"
+LABEL test "test"
 
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 6.10.0
@@ -26,7 +27,7 @@ RUN set -ex \
     C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
     56730D5401028683275BD23C23EFEFE93C4CFFFE \
   ; do \
-    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+    gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key"; \
   done
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
@@ -42,7 +43,7 @@ RUN set -ex \
   && for key in \
     6A010C5166006599AA17F08146C2130DFD2497F5 \
   ; do \
-    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+    gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key"; \
   done \
   && curl -fSL -o yarn.js "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-legacy-$YARN_VERSION.js" \
   && curl -fSL -o yarn.js.asc "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-legacy-$YARN_VERSION.js.asc" \
