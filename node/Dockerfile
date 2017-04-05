@@ -5,7 +5,7 @@ LABEL contributor "unsalted"
 LABEL test "test"
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 6.10.0
+ENV NODE_VERSION 6.10.2
 ENV YARN_VERSION 0.21.3
 
 # add node group to user
@@ -13,8 +13,8 @@ USER root
 RUN groupadd --gid 9000 node \
     && usermod -a -G node mdp
 
-RUN curl -SLO "https://nodejs.org/dist/latest-v6.x/node-v$NODE_VERSION-linux-x64.tar.xz" \
-  && curl -SLO "https://nodejs.org/dist/latest-v6.x/SHASUMS256.txt" \
+RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
+  && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt" \
   && grep "node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt \

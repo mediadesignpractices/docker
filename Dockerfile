@@ -46,6 +46,9 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
     && ln -s $WORK_DIR $HOME$WORK_DIR \
     && ln -s $DATA_DIR $HOME$DATA_DIR
 
+VOLUME [$WORK_DIR]
+VOLUME [$DATA_DIR]
+
 USER $NB_USER
 WORKDIR $WORK_DIR
 
